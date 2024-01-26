@@ -41,9 +41,43 @@
         }
         public void ShowSeats()
         {
-            foreach (var seat in BusSeats)
+            if (BusType == BusType.Normal)
             {
-                Console.WriteLine($"{seat:D2}");
+                foreach (var seat in BusSeats)
+                {
+                    Console.Write($"{seat.SeatNumber:D2}");
+                    if (seat.SeatNumber % 2 == 1)
+                    {
+                        Console.Write(" ");
+                    }
+                    else if (seat.SeatNumber % 4 == 0 || seat.SeatNumber == 22)
+                    {
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.Write("\t");
+                    }
+                }
+            }
+            else if (BusType == BusType.VIP)
+            {
+                foreach (var seat in BusSeats)
+                {
+                    Console.Write($"{seat.SeatNumber:D2}");
+                    if (seat.SeatNumber % 3 == 0 || seat.SeatNumber == 16 || seat.SeatNumber == 17)
+                    {
+                        Console.WriteLine();
+                    }
+                    else if (seat.SeatNumber % 3 == 1)
+                    {
+                        Console.Write("\t");
+                    }
+                    else
+                    {
+                        Console.Write(" ");
+                    }
+                }
             }
         }
     }

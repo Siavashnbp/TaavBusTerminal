@@ -35,16 +35,30 @@ static void Run()
         case "2":
             {
                 var busses = GetBusses();
-                int index = 0;
-                foreach (var bus in busses)
+                ShowBusses(busses);
+                break;
+            }
+        case "3":
+            {
+                var busses = GetBusses();
+                ShowBusses(busses);
+                var busIndex = GetIntegerInput("Enter bus' index:");
+                if (busIndex < 0 || busIndex >= busses.Count)
                 {
-                    Console.WriteLine($"{index++}- {bus.Name}, {bus.BusType}");
+                    throw new Exception("Out of range index");
                 }
+                var bus = busses[busIndex];
+                GetBusSeats(bus);
+                bus.ShowSeats();
                 break;
             }
         default:
             break;
     }
+    Console.WriteLine("__________________________");
+    Console.WriteLine("Press any Key to Continue");
+    Console.ReadKey();
+    Console.Clear();
 }
 void PrintStarSeprator()
 {
@@ -87,5 +101,14 @@ static int GetIntegerInput(string message)
             return value;
         }
         Console.WriteLine("Invalid input");
+    }
+}
+
+static void ShowBusses(List<Bus> busses)
+{
+    int index = 0;
+    foreach (var bus in busses)
+    {
+        Console.WriteLine($"{index++}- {bus.Name}, {bus.BusType}");
     }
 }
