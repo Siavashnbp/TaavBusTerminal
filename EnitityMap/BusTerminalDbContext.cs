@@ -1,10 +1,13 @@
 ﻿using BusTerminal.Entities;
 using Microsoft.EntityFrameworkCore;
-
 namespace BusTerminal.EnitityMap
 {
     public class BusTerminalDbContext : DbContext
     {
+        public BusTerminalDbContext()
+        {
+
+        }
         public DbSet<Bus> Buses { get; set; }
         public DbSet<BusSeat> BusSeats { get; set; }
         public DbSet<Location> Locations { get; set; }

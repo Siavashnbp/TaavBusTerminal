@@ -22,6 +22,30 @@
         public List<BusSeat> BusSeats { get; set; }
         public BusType BusType { get; set; }
         public List<Trip>? Trips { get; set; }
+        public static void ViewBusTypes()
+        {
+            var busTypesNames = Enum.GetNames(typeof(BusType));
+            var busTypesValues = (int[])Enum.GetValues(typeof(BusType));
+            for (int i = 0; i < busTypesNames.Length; i++)
+            {
+                Console.WriteLine($"{busTypesValues[i]} - {busTypesNames[i]}");
+            }
+        }
+        public static BusType GetBusType(int value)
+        {
+            if (Enum.IsDefined(typeof(BusType), value))
+            {
+                return (BusType)value;
+            }
+            throw new Exception("type is not defined");
+        }
+        public void ShowSeats()
+        {
+            foreach (var seat in BusSeats)
+            {
+                Console.WriteLine($"{seat:D2}");
+            }
+        }
     }
     public enum BusType
     {
