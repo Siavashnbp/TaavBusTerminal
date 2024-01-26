@@ -1,2 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿while (true)
+{
+    try
+    {
+
+    }
+    catch (Exception exception)
+    {
+        PrintStarSeprator();
+        Console.WriteLine(exception.Message);
+        PrintStarSeprator();
+    }
+
+}
+void PrintStarSeprator()
+{
+    Console.WriteLine("***************");
+}
