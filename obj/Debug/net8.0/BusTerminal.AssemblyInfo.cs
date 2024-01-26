@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BusTerminal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+27cca9a4e4cb31d7583b9feba24da6793857a054")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fadcc72debf12d366565e2d150dd8488b3ce2c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("BusTerminal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BusTerminal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

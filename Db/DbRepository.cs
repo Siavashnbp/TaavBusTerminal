@@ -1,16 +1,16 @@
 ﻿using BusTerminal.EnitityMap;
 
-namespace BusTerminal
+namespace BusTerminal.Db
 {
-    public class DbRepository
+    public class DbRepository<T> : IDbRepository<T> where T : class
     {
-        private static DbRepository? _dbRepositoryInstance;
+        private static DbRepository<T>? _dbRepositoryInstance;
         private BusTerminalDbContext _dbContex;
         private DbRepository()
         {
         }
-        public static DbRepository GetInstance() => _dbRepositoryInstance ??= new DbRepository();
-        public void Add<T>(T entity)
+        public static DbRepository<T> GetInstance() => _dbRepositoryInstance ??= new DbRepository<T>();
+        public void Add(T entity)
         {
             _dbContex = new BusTerminalDbContext();
             if (entity is not null)
@@ -25,6 +25,12 @@ namespace BusTerminal
                 return;
             }
             throw new Exception("Item cannot be null");
+        }
+
+        public List<T> GetAll()
+        {
+            _dbContex = new BusTerminalDbContext();
+            return _dbContex.Set<T>().ToList();
         }
     }
 }

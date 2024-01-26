@@ -18,7 +18,7 @@ while (true)
 static void Run()
 {
     var option = GetStringInput("1- Add Bus\n" +
-        "2- Show Buses\n" +
+        "2- View All Buses\n" +
         "3- Show Seats");
     switch (option)
     {
@@ -34,6 +34,12 @@ static void Run()
             }
         case "2":
             {
+                var busses = GetBusses();
+                int index = 0;
+                foreach (var bus in busses)
+                {
+                    Console.WriteLine($"{index++}- {bus.Name}, {bus.BusType}");
+                }
                 break;
             }
         default:
